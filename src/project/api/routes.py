@@ -1,10 +1,10 @@
 from fastapi import APIRouter
 
-from project.infrastructure.postgres.repository.user_repo import UserRepository
+from project.infrastructure.postgres.repository.meals_repo import MealsRepository
 from project.infrastructure.postgres.database import PostgresDatabase
-from project.schemas.user import UserSchema
+from project.schemas.meals import MealsSchema
 
-from src.project.schemas.meals import MealsSchema
+#from src.project.schemas.meals import MealsSchema
 
 router = APIRouter()
 
