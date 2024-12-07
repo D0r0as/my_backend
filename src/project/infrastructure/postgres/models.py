@@ -1,5 +1,8 @@
 from sqlalchemy.orm import Mapped, mapped_column
-from project.infrastructure.postgres.database import Base
+from src.project.infrastructure.postgres.database import Base
+from sqlalchemy.orm import relationship
+from sqlalchemy import ForeignKey
+from datetime import date
 
 class Meals(Base):
     __tablename__ = "meals"
@@ -11,3 +14,4 @@ class Meals(Base):
     weigth: Mapped[int] = mapped_column(nullable=False)
     count_pors: Mapped[int] = mapped_column(nullable=False)
     prepering_time: Mapped[int] = mapped_column(nullable=False)
+

@@ -7,7 +7,7 @@ COPY ./src /app/src
 COPY alembic.ini /app/
 COPY migration /app/migration
 COPY pyproject.toml /app/
-ENV PYTHONPATH /app/src
+ENV PYTHONPATH /app/
 WORKDIR /app
 RUN poetry config virtualenvs.create false \
     && poetry install --no-root

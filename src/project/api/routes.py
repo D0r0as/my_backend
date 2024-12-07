@@ -1,8 +1,8 @@
 from fastapi import APIRouter
 
-from project.infrastructure.postgres.repository.meals_repo import MealsRepository
-from project.infrastructure.postgres.database import PostgresDatabase
-from project.schemas.meals import MealsSchema
+from src.project.infrastructure.postgres.repository.meals_repo import MealsRepository
+from src.project.infrastructure.postgres.database import PostgresDatabase
+from src.project.schemas.meals import MealsSchema
 
 #from src.project.schemas.meals import MealsSchema
 

@@ -3,10 +3,10 @@ from typing import Type
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import text
 
-from project.schemas.meals import MealsSchema
-from project.infrastructure.postgres.models import Meals
+from src.project.schemas.meals import MealsSchema
+from src.project.infrastructure.postgres.models import Meals
 
-from project.core.config import settings
+from src.project.core.config import settings
 
 
 class MealsRepository:
