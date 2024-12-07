@@ -1,17 +1,17 @@
 from sqlalchemy.orm import Mapped, mapped_column
-from src.project.infrastructure.postgres.database import Base
 from sqlalchemy.orm import relationship
 from sqlalchemy import ForeignKey
 from datetime import date
-
-
+from sqlalchemy.ext.declarative import declarative_base
+# from project.infrastructure.postgres.database import Base
+Base = declarative_base()
 
 class Cooking(Base):
     __tablename__ = "cooking"
 
     id_sposob: Mapped[str] = mapped_column(primary_key=True)
     per_kkal: Mapped[int] = mapped_column(nullable=False)
-
+    # extend_existing = True
 
 class Kbzu(Base):
     __tablename__ = "kbzu"
@@ -22,7 +22,7 @@ class Kbzu(Base):
     zhiri: Mapped[float] = mapped_column(nullable=False)
     uglevodi: Mapped[float] = mapped_column(nullable=False)
     kkal: Mapped[float] = mapped_column(nullable=False)
-
+    # extend_existing=True
 class Ingredients(Base):
     __tablename__ = "ingredients"
 
@@ -43,8 +43,9 @@ class Sostav(Base):
 class Country(Base):
     __tablename__ = "country"
 
+    id:Mapped[int]=mapped_column(primary_key=True)
     id_country: Mapped[str] = mapped_column(nullable=False)
-    id_meal: Mapped[str] = mapped_column(ForeignKey('meals.id_meal', ondelete='CASCADE'),primary_key=True)
+    id_meal: Mapped[str] = mapped_column(ForeignKey('meals.id_meal', ondelete='CASCADE'))
 
 class Users(Base):
     __tablename__ = "users"
@@ -70,7 +71,8 @@ class Feedback(Base):
 class Vostreb(Base):
     __tablename__ = "vostreb"
 
-    id_username: Mapped[str] = mapped_column(ForeignKey('users.id_username', ondelete='CASCADE'),primary_key=True)
-    id_meal: Mapped[str] = mapped_column(ForeignKey('meals.id_meal', ondelete='CASCADE'),primary_key=True)
+    id:Mapped[int]=mapped_column(primary_key=True)
+    id_username: Mapped[str] = mapped_column(ForeignKey('users.id_username', ondelete='CASCADE'))
+    id_meal: Mapped[str] = mapped_column(ForeignKey('meals.id_meal', ondelete='CASCADE'))
     count_obr: Mapped[int] = mapped_column(nullable=False)
 
